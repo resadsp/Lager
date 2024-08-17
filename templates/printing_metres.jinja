@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Stampa</title>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        #report_header {
+            background-color: rgb(219, 147, 206);
+            padding: 10px;
+        }
+        #report_header h1 {
+            color: darkorchid;
+            margin: 0;
+        }
+
+        #report_header h2 {
+            color: rgb(26, 26, 157);
+            margin: 0;
+            margin-top: 8px;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+            width: 100%;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 5px;
+            border: 1px solid black;
+        }
+
+        thead tr {
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="float: left; padding-bottom:40px;">
+       <img height="120" src="data:static/assets/jpg;base64,{{company_logo}}"
+        alt="Company icon"  /></div>
+        <div style="float: center; padding-bottom:40px;">
+                <p><b>BALTA HOME CARPETS<p></p>
+                <i>Stevana Nemanje BB</i>
+                <p><a href="baltahomecarpets@gmail.com">
+                baltahomecarpets@gmail.com</a></p>
+                <h3>Datum i vreme: <b>{{report_timestamp}}</b></h3>
+                </div>
+        </div> 
+
+            <table>
+               <tr style="background-color:lightgray;"> <th>Kolekcija</th><th>Kvadratura</th></tr>
+               <tr><td>Sardes</td><td>{{sardes}} kvadrata</td></tr>
+               <tr><td>Gaspara</td><td>{{gaspara}} kvadrata</td></tr>
+               <tr><td>Allures</td><td>{{allures}} kvadrata</td></tr>
+               <tr><td>Rivenna</td><td>{{rivenna}} kvadrata</td></tr>
+               <tr><td>Erva</td><td>{{erva}} kvadrata</td></tr>
+               <tr><td style="background-color:lightgray;">Ukupno</td><td>{{s}} kvadrata</td></tr>
+            </table>
+
+              
+            
+        
+
+<footer>
+
+</footer>
+</body>
+</html>

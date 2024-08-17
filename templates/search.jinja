@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balta magacin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="icon" href="/static/assets/odvojeno - Copy.jpg" />
+    {% block style %}{% endblock %}
+</head>
+<body>
+    {% if error %}
+    <div id="toast-message" class="toast-message toast-error">
+        <p id="toast-text">{{error}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+    {% if success %}
+    <div id="toast-message" class="toast-message">
+        <p id="toast-text">{{success}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+
+    <header id="main_header">
+            <p style="color:white">BALTA HOME CARPETS</p>
+    </header>   
+    <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto" style="padding: 10px 15px;" href="/input">Unos artikla</a></li>
+          <li><a class="nav-link scrollto" style="padding: 10px 15px;" href="/view">Prikazi bazu</a></li>
+          <li><a class="nav-link scrollto  style="padding: 10px 15px;"" href="/printing">Sacuvaj bazu u PDF-u</a></li>
+          <li><a class="nav-link scrollto  style="padding: 10px 15px;"" href="/saldo">Kvadratura na stanju</a></li>
+          <li><a class="nav-link scrollto  style="padding: 10px 15px;""  href="/izvestaji">Dnevni izvestaji</a></li>
+          <li><a class="nav-link scrollto" style="padding: 10px 15px;" href="/logout">Odjavi se</a></li></ul>
+        </nav>
+        <div style="height:76vh;">
+            <form action="/individual_view" method="get">
+                <div class="form-group" style="padding-left: 50px;">
+                       <p  style="font-size:17px;"><label>Unesite sifru artikla:</label>
+                       <input type="text" id="sifra" name="sifra" style="width:15%;" required>
+                   <button type="submit"  class="button_magacin">Pretrazi</button>     <a href="/index_stock" class="button_magacin">Vrati na pocetnu</a></p>
+                </p></form></div>
+            <div><img src="./static/assets/ne_postoji.png" class="ne-postoji"></div>
+            
+            </div>
+
+
+                   <footer class="footer_magacin">
+                    <h5>&copy; 2024 Balta Home&reg;. Stevana Nemanje BB, Novi Pazar
+                    <img src="/static/assets/ins.png" style="width:15px; height: 15px;"> baltahome <img src="/static/assets/phone.ico" style="width:15px; height: 15px;  background-color:blue;"> 063 123 6 005</h5>
+                </footer>
+</body>
+</html>

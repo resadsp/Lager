@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balta magacin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="icon" href="/static/assets/odvojeno - Copy.jpg" />
+    {% block style %}{% endblock %}
+</head>
+<body>
+    {% if error %}
+    <div id="toast-message" class="toast-message toast-error">
+        <p id="toast-text">{{error}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+    {% if success %}
+    <div id="toast-message" class="toast-message">
+        <p id="toast-text">{{success}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+
+    <header id="main_header">
+            <p style="color:white">BALTA HOME CARPETS</p>
+    </header>   
+    <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto" style="padding: 10px 15px;" href="/input">Unos artikla</a></li>
+          <li><a class="nav-link scrollto" style="padding: 10px 15px;" href="/view">Prikazi bazu</a></li>
+          <li><a class="nav-link scrollto " style="padding: 10px 15px;" href="/printing">Sacuvaj bazu u PDF-u</a></li>
+          <li><a class="nav-link scrollto " style="padding: 10px 15px;" href="/saldo">Kvadratura na stanju</a></li>
+          <li><a class="nav-link scrollto" style="padding: 10px 15px;" href="/logout">Odjavi se</a></li></ul>
+        </nav>
+        <div style="height:69vh;">
+            <table style="width: 50%;
+            margin: 50px auto;
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            width: 50% 50%;">
+               <tr style="border: 1px solid black;
+               border-collapse: collapse;"> <th>Kolekcija</th><th style="border: 1px solid black;
+               border-collapse: collapse;">Kvadratura</th></tr>
+               <tr style="border: 1px solid black;
+               border-collapse: collapse;"><td>Sardes</td><td style="border: 1px solid black;
+               border-collapse: collapse;">{{sardes}} kvadrata</td></tr>
+               <tr style="border: 1px solid black;
+               border-collapse: collapse;"><td>Gaspara</td><td style="border: 1px solid black;
+               border-collapse: collapse;">{{gaspara}} kvadrata</td></tr>
+               <tr style="border: 1px solid black;
+               border-collapse: collapse;"><td>Allures</td><td style="border: 1px solid black;
+               border-collapse: collapse;">{{allures}} kvadrata</td></tr>
+               <tr style="border: 1px solid black;
+               border-collapse: collapse;"><td>Rivenna</td><td style="border: 1px solid black;
+               border-collapse: collapse;">{{rivenna}} kvadrata</td></tr>
+               <tr style="border: 1px solid black;
+               border-collapse: collapse;"><td>Erva</td><td style="border: 1px solid black;
+               border-collapse: collapse;">{{erva}} kvadrata</td></tr>
+               <tr><td style="background-color:  rgb(38, 190, 250); color:white;">Ukupno</td><td><b>{{s}}</b></td></tr>
+
+            </table><p><a href="/index_stock" class="button_magacin" style="margin-left:43%;">Vrati na pocetnu</a> <a href="/printing_metres" class="button_magacin" style="margin-left:0%;">Sacuvaj kvadraturu u PDF</a></p>
+
+        </div>
+    <footer class="footer_magacin">
+        <h5>&copy; 2024 Balta Home&reg;. Stevana Nemanje BB, Novi Pazar
+        <img src="/static/assets/ins.png" style="width:15px; height: 15px;"> baltahome <img src="/static/assets/phone.ico" style="width:15px; height: 15px;  background-color:blue;"> 063 123 6 005</h5>
+    </footer>
+
+</body>
+</html>

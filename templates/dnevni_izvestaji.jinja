@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balta magacin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="icon" href="/static/assets/odvojeno - Copy.jpg" />
+</head>
+<body style="height:100vh;">
+    {% if error %}
+    <div id="toast-message" class="toast-message toast-error">
+        <p id="toast-text">{{error}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+    {% if success %}
+    <div id="toast-message" class="toast-message">
+        <p id="toast-text">{{success}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+
+
+    <header id="main_header">
+        <p style="color:white">BALTA HOME CARPETS</p>
+</header>
+
+<body>
+  <form  style="width:25%; text-align:left; margin-left:5%; font-size: 15px; font-family:helvetica; margin-top: 20px; background-color: rgb(55, 180, 250); color:white; padding:5px 0px 5px 30px;" method="post" action="/dnevni_izvestaji">
+   <h4 style="font-family:Helvetica; margin-left:25%;">DNEVNI IZVESTAJ</h4>
+    <p><label for="datum">Datum:</label>
+    <input type="text" id="datum" name="datum" style="background-color:  rgb(55, 180, 250); color:white; border:none; margin-left:70px; font-size:17px;" value={{datum}} required></p>
+    <p><label for="cena">Dnevni pazar u €:</label>
+    <input type="text" id="cena" name="cena" style="background-color:  rgb(55, 180, 250); color:white; border:2px solid blue; font-size:17px; width:95px;"  required></p>
+    <button type="submit"  class="button_magacin" style="margin-left:30%; border:2px solid blue;">Potvrdi</button>
+
+  </form>
+  <h3 style="margin-left:31%; font-family:helvetica;">Mesec: Avgust</h3>
+  <table style="width:50%; text-align:center; margin-left:30%; font-size: 19px; font-family:helvetica;" class="table table-hover">
+   <tr style="background-color: rgb(55, 180, 250); color: white; font-size:18px;"><th style="width:50%; text-align:center;">Datum</th><th  style="width:50%; text-align:center;">Dnevni pazar u €</th></tr>
+   {% for i in sve %}
+   <tr><td>{{i[0]}}</td><td>{{i[1]}}</td></tr>
+   {% endfor %}
+   <tr><td style="background-color:  rgb(38, 190, 250); color:white;">Ukupno</td><td><b>{{s}}</b></td></tr>
+  </table>
+  <p style="margin-left:42%; margin-top:45px;"><a href="/index_stock" class="button_magacin" >Vrati na pocetnu</a> <a href="/printing_saldo" class="button_magacin">Sacuvaj izvestaj u PDF formatu</a>
+  </p></div>
+
+<footer class="footer_magacin" style="margin-top:100px;">
+    <h5>&copy; 2024 Balta Home&reg;. Stevana Nemanje BB, Novi Pazar
+    <img src="/static/assets/ins.png" style="width:15px; height: 15px;"> baltahome <img src="/static/assets/phone.ico" style="width:15px; height: 15px; background-color:blue;"> 063 123 6 005</h5>
+</footer>
+</body>
+</html>

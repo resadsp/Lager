@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balta magacin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="icon" href="/static/assets/odvojeno - Copy.jpg" />
+</head>
+<body style="height:100vh;">
+    {% if error %}
+    <div id="toast-message" class="toast-message toast-error">
+        <p id="toast-text">{{error}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+    {% if success %}
+    <div id="toast-message" class="toast-message">
+        <p id="toast-text">{{success}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+
+
+    <header id="main_header">
+        <p style="color:white">BALTA HOME CARPETS</p>
+</header>
+<nav id="main_menu" role="main">
+    <div class="spacer"></div>
+    {% if "user" not in session %}
+        <a href="/login">Login</a></nav>
+        <img src="/static/assets/logobalta.jpg" style="width: 850px; height:400px; margin:auto;">
+    {% endif %}
+
+</nav>
+<div>
+<main style="margin: 20px;">
+                <table style="width: 100%; border-collapse: collapse;" class="nesto">
+                    <tr><th>Kolekicja</th><th>Sifra</th><th>80x150</th><th>80x300</th><th>120x200</th><th>160x230</th><th>200x300</th></tr>
+                    {% for i in cela %}
+                        <tr><td>{{i[0]}}</td><td>{{i[1]}}</td><td>{{i[2]}}</td><td>{{i[3]}}</td><td>{{i[4]}}</td><td>{{i[5]}}</td><td>{{i[6]}}</td></tr>
+                        {% endfor %} </table>
+                        <div class="form-group">
+                        <p><a href="/printing" class="button_magacin" style="margin: 50px; width:30%; text-align:center; margin-left: 35%">Sacuvaj bazu u PDF formatu</a>
+                        <a href="/index_stock" class="button_magacin">Vrati na pocetnu</a></p></div>
+
+                    </main>
+            </div>
+                <footer class="footer_magacin">
+                    <h5>&copy; 2024 Balta Home&reg;. Stevana Nemanje BB, Novi Pazar
+                    <img src="/static/assets/ins.png" style="width:15px; height: 15px;"> baltahome <img src="/static/assets/phone.ico" style="width:15px; height: 15px;  background-color:blue;"> 063 123 6 005</h5>
+                </footer>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balta magacin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="icon" href="/static/assets/odvojeno - Copy.jpg" />
+</head>
+<body style="height:100vh;">
+    {% if error %}
+    <div id="toast-message" class="toast-message toast-error">
+        <p id="toast-text">{{error}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+    {% if success %}
+    <div id="toast-message" class="toast-message">
+        <p id="toast-text">{{success}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+
+
+    <header id="main_header">
+            <p style="color:white">BALTA HOME CARPETS</p>
+    </header>
+    <nav id="main_menu" role="main">
+        <div class="spacer"></div>
+        {% if "user" not in session %}
+            <a href="/login">Login</a></nav>
+            <img src="/static/assets/logobalta.jpg" style="width: 850px; height:400px; margin:auto;">
+        {% endif %}
+        {% if "user" in session %}
+          
+       
+    </nav>
+<main>
+    <form class="center_form" id="login_form" action="/change" method="post">
+        <p style="text-align: center; color: blue;">UPDATE:</p>
+        <div class="form-group" >
+        <label for="kolekcija">Kolekcija<span class="red-text">*</span>:</label>
+        <input type="text" id="kolekcija" name="kolekcija"  value={{i[0]}} required>
+    </div>
+    <div class="form-group">
+        <label for="sifra">Sifra: <span class="red-text">*</span>:</label>
+        <input type="text" id="sifra" name="sifra" value={{i[1]}} required>
+    </div>
+    <div class="form-group">
+        <label for="D80x150">D80x150<span class="red-text">*</span>:</label>
+        <input type="text" id="D80x150" name="D80x150" value={{i[2]}} required>
+    </div>
+    <div class="form-group">
+        <label for="D80x300">D80x300<span class="red-text">*</span>:</label>
+        <input type="text" id="D80x300" name="D80x300" value={{i[3]}} required>
+    </div>
+    <div class="form-group">
+        <label for="D120x200">D120x200<span class="red-text">*</span>:</label>
+        <input type="text" id="D120x200" name="D120x200" value={{i[4]}} required>
+    </div>
+    <div class="form-group">
+        <label for="D160x230">D160x230<span class="red-text">*</span>:</label>
+        <input type="text" id="D160x230" name="D160x230" value={{i[5]}} required>
+    </div>
+    <div class="form-group">
+        <label for="D200x300">D200x300<span class="red-text">*</span>:</label>
+        <input type="text" id="D200x300" name="D200x300" value={{i[6]}} required>
+    </div>
+    <button type="submit"  class="button_magacin">Update</button>
+</form></main> {% endif %}
+
+<footer class="footer_magacin">
+    <h5>&copy; 2024 Balta Home&reg;. Stevana Nemanje BB, Novi Pazar
+    <img src="/static/assets/ins.png" style="width:15px; height: 15px;"> baltahome <img src="/static/assets/phone.ico" style="width:15px; height: 15px;  background-color:blue;"> 063 123 6 005</h5>
+</footer>
+</body>
+</html>

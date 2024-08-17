@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Stampa</title>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        #report_header {
+            background-color: rgb(219, 147, 206);
+            padding: 10px;
+        }
+        #report_header h1 {
+            color: darkorchid;
+            margin: 0;
+        }
+
+        #report_header h2 {
+            color: rgb(26, 26, 157);
+            margin: 0;
+            margin-top: 8px;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+            width: 100%;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 5px;
+            border: 1px solid black;
+        }
+
+        thead tr {
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="float: left; padding-bottom:40px;">
+       <img height="120" src="data:static/assets/jpg;base64,{{company_logo}}"
+        alt="Company icon"  /></div>
+        <div style="float: center; padding-bottom:40px;">
+                <p><b>BALTA HOME CARPETS<p></p>
+                <i>Stevana Nemanje BB</i>
+                <p><a href="baltahomecarpets@gmail.com">
+                baltahomecarpets@gmail.com</a></p>
+                <h3>Datum i vreme: <b>{{report_timestamp}}</b></h3>
+                </div>
+        </div> 
+
+                <table>
+                <tr style="background-color: darkgrey; "><th>Kolekicja</th><th>Sifra</th><th>80x150</th><th>80x300</th><th>120x200</th><th>160x230</th><th>200x300</th></tr>
+                {% for i in cela %}
+                    <tr><td>{{i[0]}}</td><td>{{i[1]}}</td><td>{{i[2]}}</td><td>{{i[3]}}</td><td>{{i[4]}}</td><td>{{i[5]}}</td><td>{{i[6]}}</td></tr>
+                    {% endfor %} </table>
+              
+            </main>
+        
+
+<footer>
+
+</footer>
+</body>
+</html>

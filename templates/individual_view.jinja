@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balta magacin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="icon" href="/static/assets/odvojeno - Copy.jpg" />
+</head>
+<body style="height:100vh;">
+    {% if error %}
+    <div id="toast-message" class="toast-message toast-error">
+        <p id="toast-text">{{error}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+    {% if success %}
+    <div id="toast-message" class="toast-message">
+        <p id="toast-text">{{success}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+
+
+    <header id="main_header">
+        <p style="color:white">BALTA HOME CARPETS</p>
+</header>
+<nav id="main_menu" role="main">
+    <div class="spacer"></div>
+    {% if "user" not in session %}
+        <a href="/login">Login</a></nav>
+        <img src="/static/assets/logobalta.jpg" style="width: 850px; height:400px; margin:auto;">
+    {% endif %}
+</nav>
+<main>
+    <div class="ceo" style="height: 71vh;">
+      <div class="levo">
+        <table>
+        <tr><td colspan="3"><h3 style="font-family:'Helvetica';">{{user[0]}} {{user[1]}}</h3></td></tr>
+        <tr>
+          <td colspan="3"><iframe src="./static/img/{{ user[7] }}" name="pomocna" frameborder="0" width="210" height="265"></iframe></td>
+      </tr>
+       
+    </table></div>
+    <div class="desno">
+
+
+    <form method="post" action="/change" style="padding-top:105px;">
+
+    <p> <label for="D80x150"> 80 x 150 - </label><input type="number" min=0  id="D80x150" name="D80x150" style="width: 45px;  height: 20px; margin-left: 10px; padding-left:3px" value={{user[2]}}></p>
+    <p>  <label for="D80x300"> 80 x 300 - </label><input type="number" min=0  id="D80x300" name="D80x300" style="width: 45px;  height: 20px; margin-left: 10px; padding-left:3px" value={{user[3]}}></p>
+    <p>  <label for="D120x200">120x200 - </label><input type="number" min=0 id="D120x200" name="D120x200" style="width: 45px;  height: 20px; margin-left: 10px; padding-left:3px" value={{user[4]}}></p>
+    <p>  <label for="D160x230">160x230 - </label><input type="number" min=0 id="D160x230" name="D160x230" style="width: 45px;  height: 20px;  margin-left: 10px; padding-left:3px" value={{user[5]}}></p>
+    <p>  <label for="D200x300">200x300 - </label><input type="number" min=0 id="D200x300" name="D200x300" style="width: 45px; height: 20px; margin-left: 10px; padding-left:3px" value={{user[6]}}></p>
+    <p>  <label for="D120x120">120x 120- </label><input type="number" min=0 id="D120x120" name="D120x120" style="width: 45px; height: 20px; margin-left: 10px; padding-left:3px" value={{user[9]}}></p>
+    <p>  <label for="D160x160">160x160 - </label><input type="number" min=0 id="D160x160" name="D160x160" style="width: 45px; height: 20px; margin-left: 10px; padding-left:3px" value={{user[10]}}></p>
+    <p>  <label for="D200x200">200x200 - </label><input type="number" min=0 id="D200x200" name="D200x200" style="width: 45px; height: 20px; margin-left: 10px; padding-left:3px" value={{user[11]}}></p>
+    <p>  Kvadratura: <b>{{user[8]}}</b></p>
+    <input type="text" name="kolekcija" value={{user[0]}} style="width:0px; border:none; color: white;">
+    <input type="text" name="sifra" value={{user[1]}} style="width:0px; border:none; color: white;">
+</div>
+</div>
+    <p style="margin-left: 40%; margin-top:0;"><button class="button_magacin" id="myButton">Sacuvaj izmene</button></form>
+    <a href="/index_stock" class="button_magacin">Vrati na pocetnu</a></p>
+
+
+    <footer class="footer_magacin">
+        <h5>&copy; 2024 Balta Home&reg;. Stevana Nemanje BB, Novi Pazar
+        <img src="/static/assets/ins.png" style="width:15px; height: 15px;"> baltahome <img src="/static/assets/phone.ico" style="width:15px; height: 15px; background-color:blue;"> 063 123 6 005</h5>
+    </footer>
+</body>
+</html>

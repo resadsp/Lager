@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balta magacin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="icon" href="/static/assets/odvojeno - Copy.jpg" />
+</head>
+<body style="height:100vh;">
+    {% if error %}
+    <div id="toast-message" class="toast-message toast-error">
+        <p id="toast-text">{{error}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+    {% if success %}
+    <div id="toast-message" class="toast-message">
+        <p id="toast-text">{{success}}</p>
+        <button onclick="this.parentNode.remove()" class="toast-close-btn">&times;</button>
+    </div>
+    {% endif %}
+
+
+    <header id="main_header">
+        <p style="color:white">BALTA HOME CARPETS</p>
+</header>
+
+<body>
+
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2 style="margin-left:10%;">Prijava admina</h2>
+        <h3 style="margin-left:10%;">Prijavite se</h3>
+      </div>
+<div style="height:40vh;">
+<form class="center_form" id="login_form" action="/izvestaji" method="post" style="margin-top: 0px;" >
+    <div class="form-group">
+        <label for="login_username">Unesite sifru glavnog admina:</label>
+        <input type="password" id="login_username" name="glavna_sifra" required>
+    </div>
+    <button type="submit" class="button-1">Prijavi se</button>
+</form>
+
+</div>
+</section>
+<footer class="footer_magacin">
+    <h5>&copy; 2024 Balta Home&reg;. Stevana Nemanje BB, Novi Pazar
+    <img src="/static/assets/ins.png" style="width:15px; height: 15px;"> baltahome <img src="/static/assets/phone.ico" style="width:15px; height: 15px; background-color:blue;"> 063 123 6 005</h5>
+</footer>
+</body>
+</html>
